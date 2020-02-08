@@ -1,0 +1,5 @@
+/python/api/__pycache__/*
+/python/api/logs/*
+/python/api/__pycache__
+/python/api/logs
+/venv/
