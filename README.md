@@ -13,6 +13,10 @@ PORT=(custom port number here, or remove the whole line to use the default port:
 ACCESS_TOKEN_SECRET='(access token hash string here)'
 REFRESH_TOKEN_SECRET='(refresh token hash string here)'
 ```
-(For the latter two, the values can be anything you'd like. However, it's recommended to use a random 64-character hash string for security. In a terminal, enter `node` in the window. Then, enter the following command: `require("crypto").createHash('sha256').digest('hex').toString()`, which will generate a 64-character hashed string. Run it once for each token secret you'd like to use, and copy-paste the different strings into each of the fields in the '.env' file. Exit the Node command line with '.exit', then save and close the '.env' file.)
+(For the latter two, the values can be anything you'd like. However, it's recommended to use a random 64-character hash string for security. In a terminal, enter `node` in the window. Then, enter the following command: 
+
+`require("crypto").createHash('sha256').digest('hex').toString()`
+
+That will generate a 64-character hashed string. Run it once for each token secret you'd like to use, and copy-paste the different strings into each of the fields in the '.env' file. Exit the Node command line with '.exit', then save and close the '.env' file.)
 
 Finally, type `node server.js` in the terminal, which will start listening for the front-end server on either the designated port from the '.env' file or on port 3000.
