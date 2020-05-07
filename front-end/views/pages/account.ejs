@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+	<header>
+    <%- include ("../partials/header") %>
+</header>
+	<div id="create" class="popup" align="center">
+		<form action="/accountadd" method="post">
+			<div align="center" style="font-size: 16px;"> <b>Create an Account</b><br><br></div>
+		    <input type=text name=account id=account required placeholder="Enter a name for the account" /><br>
+			<input type=text name=bank id=bank required placeholder="Enter the associated bank's name" /><br>
+			<input type=text name=type id=type required placeholder="Enter a type (e.g., 'Checking')" /><br>
+			<input type=number name=balance id=balance min=0 step=0.01 required placeholder="Enter your balance" /><br><br>
+
+			<input type=submit value="Create" style="display: inline;"/><br><br>
+		    <div type=button class="cancel" onclick="closeCreatePopup();">Cancel</div>
+		</form>
+	</div>
+
+	<div id="update" class="popup" align="center">
+		<form action="/accountupdate" method="post">
+			<div align="center" style="font-size: 16px;"> <b>Update an Account</b><br><br></div>
+		    <input type=text name=account id=account required placeholder="Enter the account's name" /><br>
+			<input type=text name=bank id=bank required placeholder="Enter the associated bank's name" /><br>
+			<input type=text name=type id=type required placeholder="Enter a type (e.g., 'Checking')" /><br>
+			<input type=number name=balance id=balance min=0 step=0.01 required placeholder="Enter the balance" /><br><br>
+
+			<input type=submit value="Update" style="display: inline;"/><br><br>
+		    <div type=button class="cancel" onclick="closeUpdatePopup();">Cancel</div>
+		</form>
+	</div>
+
+	<div id="delete" class="popup" align="center">
+		<form action="/accountdel" method="post">
+			<div align="center" style="font-size: 16px;"> <b>Delete an Account</b><br><br></div>
+		    <input type=text name=account id=account required placeholder="Enter the account's name" /><br>
+			<input type=text name=bank id=bank required placeholder="Enter the associated bank's name" /><br>
+			<input type=text name=type id=type required placeholder="Enter a type (e.g., 'Checking')" /><br>
+			<input type=number name=balance id=balance min=0 step=0.01 required placeholder="Enter the balance" /><br><br>
+			
+			<input type=submit value="Delete" style="display: inline;"/><br><br>
+		    <div type=button class="cancel" onclick="closeDeletePopup();">Cancel</div>
+		</form>
+	</div>
+</HEAD>
+<BODY>
+
+	<fieldset class=mainwin>
+		<div id=win align="center">
+			<h2>Accounts</h2>
+			<button id="createBudget" onClick="openCreatePopup();">Create Account</button><emsp>
+			<button id="updateBudget" onClick="openUpdatePopup();">Update Account</button><emsp>
+			<button id="deleteBudget" onClick="openDeletePopup();">Delete Account</button><br><br>
+
+			<% if(message !== null){ %>
+	          <%- message %>
+	        <% } %>
+	        <% if(error !== null){ %>
+		      <p><%- error %></p>
+		    <% } %><br><br>
+		</div>
+	</fieldset>
+	<br><br><br>
+
+</BODY>
+</HTML>
+
+<script>
+function openCreatePopup() {
+	document.getElementById('win').style.display = 'none';
+	if (document.getElementById('delete').style.display == 'block') {
+		document.getElementById('delete').style.display = 'none';
+	}
+	else if (document.getElementById('update').style.display == 'block') {
+		document.getElementById('update').style.display = 'none';
+	}
+    document.getElementById('create').style.display = 'block';
+}
+
+function closeCreatePopup() {
+    document.getElementById('create').style.display = 'none';
+    document.getElementById('win').style.display = 'block';
+}
+
+function openUpdatePopup() {
+	document.getElementById('win').style.display = 'none';
+	if (document.getElementById('delete').style.display == 'block') {
+		document.getElementById('delete').style.display = 'none';
+	}
+	else if (document.getElementById('create').style.display == 'block') {
+		document.getElementById('create').style.display = 'none';
+	}
+    document.getElementById('update').style.display = 'block';
+}
+
+function closeUpdatePopup() {
+    document.getElementById('update').style.display = 'none';
+    document.getElementById('win').style.display = 'block';
+}
+
+function openDeletePopup() {
+	document.getElementById('win').style.display = 'none';
+	if (document.getElementById('create').style.display == 'block') {
+		document.getElementById('create').style.display = 'none';
+	}
+	else if (document.getElementById('update').style.display == 'block') {
+		document.getElementById('update').style.display = 'none';
+	}
+    document.getElementById('delete').style.display = 'block';
+}
+
+function closeDeletePopup() {
+    document.getElementById('delete').style.display = 'none';
+    document.getElementById('win').style.display = 'block';
+}
+</script>

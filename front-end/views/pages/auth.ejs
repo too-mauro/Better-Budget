@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<div class=topbar>
+		<img align="left" src="/img/betterbudget.png" alt="Better Budget" style="width:213px; height:63px; padding-left: 10px; padding-top: 10px;">
+	</div>
+</HEAD>
+<BODY>
+
+	<form action="/login" method="post">
+  <fieldset class=mainwin align="center">
+  	<div align="center"> <h2>LOGIN</h2>
+  		<% if(message !== null){ %>
+          <%= message %>
+        <% } %>
+      <br>
+        <% if(error !== null){ %>
+      <p><%= error %></p>
+    <% } %><br>
+
+    <input type=text name="username" id="username" required placeholder="Enter username" autocomplete=off autofocus><br><br>
+
+    <input type=password name="password" id="password" required placeholder="Enter password" autocomplete=off><br><br>
+
+  	<input type=submit value="Login" id="login" style="width:125px; height:25px;"><br>
+  </form>
+  </div>
+  </fieldset>
+  <br><br><br><br><br><br><br>
+  <div align="center">
+    <button id="registerButton" onClick="document.getElementById('register').style.display = 'block';">No account? Register here!</button>
+  </div>
+
+  <div id="register" class="registerPopup" align="center">
+    <form action="/register" method="post">
+      <div align="center"><h2>REGISTER</h2></div>
+        <input type=text name="username" id="username" required placeholder="Enter username" autocomplete=off autofocus><br><br>
+
+        <input type=email name="email" id="email" required placeholder="Enter email address" autocomplete=off><br><br>
+
+        <input type=password name="password" id="password" required placeholder="Enter password" autocomplete=off><br><br>
+
+        <input type=submit value="Register" id="register" style="width:125px; height:25px;"><br>
+        <br>
+        <div type=button class="cancel" onclick="document.getElementById('register').style.display = 'none';">Cancel</div>
+    </form>
+  </div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+	<header>
+    <%- include ("../partials/header") %>
+</header>
+</HEAD>
+<BODY>
+
+<fieldset class=mainwin>
+	<form action="./line" method="post">
+		<div id=win align="center">
+			<h2>Line Items</h2>
+			<input type=number min=0 step=1 name="budgetID" id="budgetID" required placeholder="Enter budget ID"><br><br>
+			<input type=submit value="View Line Items">
+		</div>
+	</form>
+		<div align="center">
+			<% if(message !== null){ %>
+	          <%- message %>
+	        <% } %>
+	        <% if(error !== null){ %>
+		      <p><%- error %></p>
+		    <% } %><br><br>
+		</div>
+	</fieldset>
+	<br><br><br>
